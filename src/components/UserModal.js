@@ -28,8 +28,8 @@ const UserModal = (props) => {
     >
     
     <div>
-      {membersList.map(function(member,i) {
-        return <div className="modal__body" key={i}>
+      {membersList.map(member =>
+           <div className="modal__body">
             <h4><span className="title">Name : </span> {member.real_name}</h4> 
             <p><span className="title">Id : </span> {member.id}</p>
               
@@ -40,29 +40,27 @@ const UserModal = (props) => {
                     selected={startDate} 
                     onChange={date => setStartDate(date)} 
                     withPortal
-                   
                     />
               </div>
           
               <div style={{textAlign: "center"}}>
                 {
                   member.activity_periods
-                    .filter(period => moment(period.start_time, "MMM DD YYYY").isSame(moment(selectedDate,"MMM DD YYYY")))
+                    .filter(period => moment(period.start_time, "MMM DD YYYY").isSame(selectedDate))
                     .map(prop =>
                       <p>
-                        Start Time: {prop.start_time.substr(12)}
+                        Start Time : {prop.start_time.substr(12)}
                         <br></br>
                         End Time: {prop.end_time.substr(12)}
-                      </p>
-                    ) && (<p>No activity for that day</p>)
-                }
+                      </p>  
+                    ) 
+                } 
               </div>
               
           </div>
           
-        }
-        
-      )}
+        )
+      }
          
   </div>
     
