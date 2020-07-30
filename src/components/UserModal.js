@@ -36,6 +36,7 @@ const UserModal = (props) => {
             <p><span className="title">Location : </span> {member.tz}</p>
               
               <div style={{textAlign:"center", marginBottom: "10px", width:""}}>
+                <p style={{fontSize: "15px"}}>Select date to view activities</p>
                 <DatePicker className="react-datepicker" 
                     selected={startDate} 
                     onChange={date => setStartDate(date)} 
@@ -53,7 +54,7 @@ const UserModal = (props) => {
                         <br></br>
                         End Time: {prop.end_time.substr(12)}
                       </p>  
-                    ) 
+                    )   
                 } 
               </div>
               
