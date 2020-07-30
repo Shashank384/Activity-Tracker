@@ -10,6 +10,10 @@ import "react-datepicker/dist/react-datepicker.css";
 const UserModal = (props) => {
  
   const [startDate, setStartDate] = useState(new Date());
+
+  const resetDate = () => {
+    setStartDate(new Date())
+  }
   
   const selectedDate = moment(startDate.valueOf()).format("MMM D YYYY");
 
@@ -68,7 +72,10 @@ const UserModal = (props) => {
     <button 
         style={{marginLeft: "35%", fontSize: "20px"}}
         className="button"
-        onClick={props.handleClearSelectedOption}
+        onClick={()=> {
+          props.handleClearSelectedOption();
+          resetDate();
+        }}
         >Okay
     </button>
     
